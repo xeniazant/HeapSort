@@ -82,6 +82,9 @@ public class MaxHeap {
      * Remember the heap ends at index heapsize-1 inclusive.
      */
     
+    protected void maxHeapify(int index){
+    
+    }
     
     
     /*
@@ -91,6 +94,10 @@ public class MaxHeap {
      * Remember the heap ends at index heapsize-1 inclusive. 
      */
     
+    protected void buildMaxHeap(){
+    
+    }
+    
     /*
      * A public method named heapsort, based on the HEAPSORT method, whose pseudocode is in the textbook and the slides. 
      * This method has no parameters, since the array is a class member variable.  
@@ -98,6 +105,10 @@ public class MaxHeap {
      * This method modifies heapsize continuously, so remember to restore a backup copy of heapsize after - 
      * the sorting is done.
      */
+    
+    public void heapSort(){
+    
+    }
 
     public static void main(String[] args) {
         // TODO code application logic here
