@@ -29,6 +29,8 @@ public class MaxHeap {
     
     public MaxHeap(int[] storage){
         this.storage = storage;
+        heapsize = storage.length;
+        //todo invoke build max heap
        
     }
     
@@ -40,7 +42,13 @@ public class MaxHeap {
      * then compute the parent's index, then finally subtract 1 to go back to zero-indexing.
      */
      protected int parentOf(int index){
-         return 0;
+        index ++;
+        if(index != 1 && index < heapsize/2){
+            index = index / 2;
+            index --; 
+            return index;
+        }
+        return -1;
      }
     
     /*
@@ -112,7 +120,9 @@ public class MaxHeap {
     }
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        // TODO code application logic here\
+        
+        
     }
     
 }
