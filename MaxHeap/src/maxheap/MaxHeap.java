@@ -100,7 +100,12 @@ public class MaxHeap {
      */
     
     protected void maxHeapify(int index){
-    
+        int left = leftChildOf(index);
+        int right = rightChildOf(index);
+        int holder;
+        if(left <= heapsize && storage[left] > storage[index]){
+            
+        }
     }
     
     
