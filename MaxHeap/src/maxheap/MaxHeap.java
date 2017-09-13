@@ -59,7 +59,11 @@ public class MaxHeap {
      */
      
      protected int leftChildOf(int index){
-         return 0;
+         index ++;
+         if(2 * index <= heapsize){
+             return (index * 2) - 1;
+         }
+         return -1;
      }
     
     /*
@@ -69,7 +73,11 @@ public class MaxHeap {
      */
     
      protected int rightChildOf(int index){
-         return 0;
+         index ++;
+         if((2 * index + 1) <= heapsize){
+             return (index * 2); //becuase we moved to one indexing it doesn't make sense to 2(index) +1 -1
+         }
+         return -1;
      }
      
     /*
