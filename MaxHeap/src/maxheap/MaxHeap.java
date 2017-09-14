@@ -106,23 +106,20 @@ public class MaxHeap {
         int right = rightChildOf(index);
         int holder;
         int largest;
-        System.out.println("storage in left is " + storage[left] + "storage in index is " + storage[index] );
-        if(storage[left] > storage[index] && left != -1) {
+        //System.out.println("storage in left is " + storage[left] + "storage in index is " + storage[index] );
+        if( left != -1 && left <= heapsize -1  && storage[left] > storage[index] ) {
             largest = left;
         } else largest  = index ;
         //burn this bridge when we get to it.
         if(right != -1 &&  storage[right] > storage[largest]){
             largest = right;
         }
-        
-        
-        
         if(largest != index){
             holder = storage[index];
-            System.out.println("unswapped " + storage[index] + " , " + storage[largest]);
+            //System.out.println("unswapped " + storage[index] + " , " + storage[largest]);
             storage[index] = storage[largest];
             storage[largest] = holder;
-            System.out.println("swapped " + storage[index] + " , " + storage[largest]);
+            //System.out.println("swapped " + storage[index] + " , " + storage[largest]);
             maxHeapify(largest);
         }
         
@@ -137,7 +134,7 @@ public class MaxHeap {
      */
     
     protected void buildMaxHeap(){
-        for(int i = heapsize/2; i > 1; i--){
+        for(int i = (heapsize/2); i >= 0; i--){
             //System.out.println(i);
             maxHeapify(i);
         }
@@ -154,7 +151,7 @@ public class MaxHeap {
     public void heapSort(){
         buildMaxHeap();
         int backUp = heapsize;
-        for(int i = heapsize -1; i > 2 ; i --){
+        for(int i = heapsize -1; i >= 1 ; i --){
             int swapCop;
             swapCop = storage[0];
             storage[0] = storage[i];
@@ -170,9 +167,9 @@ public class MaxHeap {
         int[] test0 = {6,8,5,12,10,35,21,0,8};
         MaxHeap testing = new MaxHeap(test0);
         testing.printMaxHeap();
-        //System.out.println(testing.parentOf(0));
+        //System.out.println(testing.leftChildOf(4));
 
-        testing.maxHeapify(1);
+        testing.heapSort();
         testing.printMaxHeap();
         
     }
