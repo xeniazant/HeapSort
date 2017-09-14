@@ -103,9 +103,24 @@ public class MaxHeap {
         int left = leftChildOf(index);
         int right = rightChildOf(index);
         int holder;
-        if(left <= heapsize && storage[left] > storage[index]){
-            
+        int largest;
+        if(left <= heapsize - 1 && storage[left] > storage[index]){
+            largest = left;
         }
+        
+        if(right <= heapsize - 1 && storage[right] > storage[index]){
+            largest = right;
+        }
+        
+        else largest  = index ;
+        
+        if(largest != index){
+            holder = storage[index];
+            storage[index] = storage[largest];
+            storage[largest] = holder;
+            maxHeapify(largest);
+        }
+        
     }
     
     
