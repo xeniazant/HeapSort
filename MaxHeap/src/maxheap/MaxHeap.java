@@ -132,7 +132,9 @@ public class MaxHeap {
      */
     
     protected void buildMaxHeap(){
-    
+        for(int i = heapsize/2; i > 1; i--){
+            maxHeapify(i);
+        }
     }
     
     /*
