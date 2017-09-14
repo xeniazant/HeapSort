@@ -43,7 +43,7 @@ public class MaxHeap {
      */
      protected int parentOf(int index){
         index ++;
-        if(index != 1 && index < heapsize/2){
+        if(index != 1 && index < heapsize){
             index = index / 2;
             index --; 
             return index;
@@ -74,7 +74,7 @@ public class MaxHeap {
     
      protected int rightChildOf(int index){
          index ++;
-         if((2 * index + 1) <= heapsize){
+         if((2 * index + 1) < heapsize){
              return (index * 2); //becuase we moved to one indexing it doesn't make sense to 2(index) +1 -1
          }
          return -1;
@@ -89,8 +89,9 @@ public class MaxHeap {
      * so you may want to use java.util.Arrays.copyOfRange before invoking java.util.Arrays.toString.
      */
     public void printMaxHeap(){
-        int[] rangeCopy = java.util.Arrays.copyOfRange(storage, 0, heapsize -1);
-        System.out.println(java.util.Arrays.toString(rangeCopy));
+        //int[] rangeCopy = java.util.Arrays.copyOfRange(storage, 0, heapsize);
+        System.out.println(heapsize);
+        System.out.println(java.util.Arrays.toString(storage));
     }
     /*
      * A protected recursive method named maxHeapify based on the MAX-HEAPIFY method, 
@@ -105,21 +106,23 @@ public class MaxHeap {
         int right = rightChildOf(index);
         int holder;
         int largest;
-        if(left <= heapsize - 1 && storage[left] > storage[index]){
+        System.out.println("storage in left is " + storage[left] + "storage in index is " + storage[index] );
+        if(storage[left] > storage[index] && left != -1) {
             largest = left;
-        }
+        } else largest  = index ;
         //burn this bridge when we get to it.
-        
-        if(right <= heapsize - 1 && storage[right] > storage[index] && storage[right] > storage[left]){
+        if(right != -1 &&  storage[right] > storage[largest]){
             largest = right;
         }
         
-        else largest  = index ;
+        
         
         if(largest != index){
             holder = storage[index];
+            System.out.println("unswapped " + storage[index] + " , " + storage[largest]);
             storage[index] = storage[largest];
             storage[largest] = holder;
+            System.out.println("swapped " + storage[index] + " , " + storage[largest]);
             maxHeapify(largest);
         }
         
@@ -135,6 +138,7 @@ public class MaxHeap {
     
     protected void buildMaxHeap(){
         for(int i = heapsize/2; i > 1; i--){
+            //System.out.println(i);
             maxHeapify(i);
         }
     }
@@ -163,7 +167,13 @@ public class MaxHeap {
 
     public static void main(String[] args) {
         // TODO code application logic here\
-        
+        int[] test0 = {6,8,5,12,10,35,21,0,8};
+        MaxHeap testing = new MaxHeap(test0);
+        testing.printMaxHeap();
+        //System.out.println(testing.parentOf(0));
+
+        testing.maxHeapify(1);
+        testing.printMaxHeap();
         
     }
     
