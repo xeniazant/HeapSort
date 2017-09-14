@@ -30,7 +30,7 @@ public class MaxHeap {
     public MaxHeap(int[] storage){
         this.storage = storage;
         heapsize = storage.length;
-        //todo invoke build max heap
+        buildMaxHeap();
        
     }
     
@@ -90,8 +90,8 @@ public class MaxHeap {
      */
     public void printMaxHeap(){
         //int[] rangeCopy = java.util.Arrays.copyOfRange(storage, 0, heapsize);
-        System.out.println(heapsize);
-        System.out.println(java.util.Arrays.toString(storage));
+        System.out.println("heapsize is " + heapsize);
+        System.out.println("Heap at time of call is " + java.util.Arrays.toString(storage));
     }
     /*
      * A protected recursive method named maxHeapify based on the MAX-HEAPIFY method, 
@@ -135,7 +135,6 @@ public class MaxHeap {
     
     protected void buildMaxHeap(){
         for(int i = (heapsize/2); i >= 0; i--){
-            //System.out.println(i);
             maxHeapify(i);
         }
     }
@@ -149,11 +148,11 @@ public class MaxHeap {
      */
     
     public void heapSort(){
-        buildMaxHeap();
+        //buildMaxHeap();
         int backUp = heapsize;
         for(int i = heapsize -1; i >= 1 ; i --){
             int swapCop;
-            swapCop = storage[0];
+            swapCop = storage[0]; // swapCop just holds one of the two values exchanged until it can be place properly.
             storage[0] = storage[i];
             storage[i] = swapCop;
             heapsize --;
