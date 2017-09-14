@@ -89,7 +89,8 @@ public class MaxHeap {
      * so you may want to use java.util.Arrays.copyOfRange before invoking java.util.Arrays.toString.
      */
     public void printMaxHeap(){
-        
+        int[] rangeCopy = java.util.Arrays.copyOfRange(storage, 0, heapsize -1);
+        System.out.println(java.util.Arrays.toString(rangeCopy));
     }
     /*
      * A protected recursive method named maxHeapify based on the MAX-HEAPIFY method, 
@@ -107,8 +108,9 @@ public class MaxHeap {
         if(left <= heapsize - 1 && storage[left] > storage[index]){
             largest = left;
         }
+        //burn this bridge when we get to it.
         
-        if(right <= heapsize - 1 && storage[right] > storage[index]){
+        if(right <= heapsize - 1 && storage[right] > storage[index] && storage[right] > storage[left]){
             largest = right;
         }
         
