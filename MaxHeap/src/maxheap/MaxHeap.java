@@ -146,7 +146,17 @@ public class MaxHeap {
      */
     
     public void heapSort(){
-    
+        buildMaxHeap();
+        int backUp = heapsize;
+        for(int i = heapsize -1; i > 2 ; i --){
+            int swapCop;
+            swapCop = storage[0];
+            storage[0] = storage[i];
+            storage[i] = swapCop;
+            heapsize --;
+            maxHeapify(0);
+        }
+        heapsize = backUp;
     }
 
     public static void main(String[] args) {
