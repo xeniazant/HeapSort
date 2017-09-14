@@ -11,4 +11,19 @@ package maxheap;
  */
 public class TestMaxHeap {
     
+    public static void main(String[] args) {
+        // TODO code application logic here\
+        int[] test0 = {6,8,5,12,10,35,21,0,8};
+        MaxHeap testing = new MaxHeap(test0);
+        testing.printMaxHeap();
+        //System.out.println(testing.leftChildOf(4));
+
+        testing.heapSort();
+        testing.printMaxHeap();
+        testing.printMaxHeap();
+        
+    }
 }
+
+
+
