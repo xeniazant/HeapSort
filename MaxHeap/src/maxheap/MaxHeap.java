@@ -1,13 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * @author Xenia Zantello 
+ * completed on: 9/14/2017
+ *  For CSC 333.001 Algorithms and Data Structures 
+ * Professor - Dr. Adam Whitley
+ *
+ * This code implements the Max Hap data structure and implents a sorting algorithm leveraging 
+ * the properties of said structure in the MaxHeap java class.
+ * In the TestMaxHeap file there is a main method which provides various tests for
+ * the aforementioned implementations.
+ *
  */
 package maxheap;
 
 /**
  *
- * @author xeniazantello
+ * @author Xenia Zantello
  */
 public class MaxHeap {
     
